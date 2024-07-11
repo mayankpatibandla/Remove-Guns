@@ -20,23 +20,19 @@ public class ItemRemover {
             if (x instanceof ItemStack) {
                 ItemStack item = (ItemStack) x;
 
-                for (String item_name : Config.items) {
-                    if (item.getDisplayName()
-                        .equals(item_name)) {
-                        player.inventoryContainer.putStackInSlot(
-                            player.inventoryContainer.getInventory()
-                                .indexOf(item),
-                            null);
+                if (Config.items.contains(item.getDisplayName())) {
+                    player.inventoryContainer.putStackInSlot(
+                        player.inventoryContainer.getInventory()
+                            .indexOf(item),
+                        null);
 
-                        RemoveGuns.LOG.info(
-                            "Removed " + item.getDisplayName() + " from " + player.getDisplayName() + "'s inventory");
-                        player.addChatMessage(
-                            (IChatComponent) new ChatComponentText(
-                                "§cRemoved " + item
-                                    .getDisplayName() + " from " + player.getDisplayName() + "'s " + "inventory"));
-                    }
+                    RemoveGuns.LOG
+                        .info("Removed " + item.getDisplayName() + " from " + player.getDisplayName() + "'s inventory");
+                    player.addChatMessage(
+                        (IChatComponent) new ChatComponentText(
+                            "§cRemoved " + item
+                                .getDisplayName() + " from " + player.getDisplayName() + "'s " + "inventory"));
                 }
-
             }
         }
     }
@@ -47,17 +43,13 @@ public class ItemRemover {
         for (Object x : event.world.loadedEntityList) {
             if (x instanceof EntityItem) {
                 EntityItem item = (EntityItem) x;
-
-                for (String item_name : Config.items) {
-                    if (item.getEntityItem()
-                        .getDisplayName()
-                        .equals(item_name)) {
-                        event.world.removeEntity(item);
-
-                        RemoveGuns.LOG.info(
-                            "Removed " + item.getEntityItem()
-                                .getDisplayName() + " from the world");
-                    }
+                if (Config.items.contains(
+                    item.getEntityItem()
+                        .getDisplayName())) {
+                    event.world.removeEntity(item);
+                    RemoveGuns.LOG.info(
+                        "Removed " + item.getEntityItem()
+                            .getDisplayName() + " from the world");
                 }
             }
         }
