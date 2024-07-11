@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.mayankpatibandla.removeguns;
 
 import java.io.File;
 

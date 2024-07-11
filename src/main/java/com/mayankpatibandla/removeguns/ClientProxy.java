@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.mayankpatibandla.removeguns;
 
 public class ClientProxy extends CommonProxy {
 
