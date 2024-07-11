@@ -1,5 +1,6 @@
 package com.mayankpatibandla.removeguns;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -57,6 +58,16 @@ public class ItemRemover {
                         RemoveGuns.LOG.info(
                             "Removed " + item.getEntityItem()
                                 .getDisplayName() + " from the world");
+
+                        RemoveGuns.LOG.info("Creative Tabs:");
+                        for(CreativeTabs tab : CreativeTabs.creativeTabArray){
+//                            RemoveGuns.LOG.info(tab.getTabLabel());
+                            if(tab.getTabLabel().equals("cnpcsw")){
+                                RemoveGuns.LOG.info(tab.getClass().getSimpleName());
+                                RemoveGuns.LOG.info(tab.getClass().getFields());
+                            }
+                        }
+
                     }
                 }
             }

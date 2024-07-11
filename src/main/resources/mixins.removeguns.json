@@ -5,7 +5,9 @@
   "refmap": "mixins.removeguns.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
+  "mixins": [
+    "CreativeTabMixin"
+  ],
   "client": [],
   "server": []
 }
