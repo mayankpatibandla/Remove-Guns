@@ -13,7 +13,7 @@ public class CommonProxy {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
         RemoveGuns.LOG.info(Config.greeting);
-        RemoveGuns.LOG.info("I am MyMod at version " + Tags.VERSION);
+        RemoveGuns.LOG.info("RemoveGuns -- Version: " + Tags.VERSION);
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)

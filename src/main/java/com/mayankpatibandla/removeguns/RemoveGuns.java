@@ -3,6 +3,7 @@ package com.mayankpatibandla.removeguns;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -16,14 +17,20 @@ public class RemoveGuns {
     public static final String MODID = "removeguns";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "com.mayankpatibandla.removeguns.ClientProxy", serverSide = "com.mayankpatibandla.removeguns.CommonProxy")
+    @SidedProxy(
+        clientSide = "com.mayankpatibandla.removeguns.ClientProxy",
+        serverSide = "com.mayankpatibandla.removeguns.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler
-    // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
+    // preInit "Run before anything else. Read your config, create blocks, items, etc., and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+
+        FMLCommonHandler.instance()
+            .bus()
+            .register(new ItemRemover());
     }
 
     @Mod.EventHandler
