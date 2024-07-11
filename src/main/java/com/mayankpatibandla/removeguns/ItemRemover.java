@@ -1,13 +1,13 @@
 package com.mayankpatibandla.removeguns;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class ItemRemover {
 
@@ -21,14 +21,17 @@ public class ItemRemover {
                 ItemStack item = (ItemStack) x;
 
                 if (Config.items.contains(item.getDisplayName())) {
-                    player.inventoryContainer.putStackInSlot(player.inventoryContainer.getInventory().indexOf(item),
-                                                             null);
+                    player.inventoryContainer.putStackInSlot(
+                        player.inventoryContainer.getInventory()
+                            .indexOf(item),
+                        null);
 
-                    RemoveGuns.LOG.info(
-                        "Removed " + item.getDisplayName() + " from " + player.getDisplayName() + "'s inventory");
-                    player.addChatMessage((IChatComponent) new ChatComponentText(
-                        "§cRemoved " + item.getDisplayName() + " from " + player.getDisplayName() + "'s " +
-                        "inventory"));
+                    RemoveGuns.LOG
+                        .info("Removed " + item.getDisplayName() + " from " + player.getDisplayName() + "'s inventory");
+                    player.addChatMessage(
+                        (IChatComponent) new ChatComponentText(
+                            "§cRemoved " + item
+                                .getDisplayName() + " from " + player.getDisplayName() + "'s " + "inventory"));
                 }
             }
         }
@@ -40,21 +43,13 @@ public class ItemRemover {
         for (Object x : event.world.loadedEntityList) {
             if (x instanceof EntityItem) {
                 EntityItem item = (EntityItem) x;
-
-                if (Config.items.contains(item.getEntityItem().getDisplayName())) {
+                if (Config.items.contains(
+                    item.getEntityItem()
+                        .getDisplayName())) {
                     event.world.removeEntity(item);
-
-                    RemoveGuns.LOG.info("Removed " + item.getEntityItem().getDisplayName() + " from the world");
-
-                    RemoveGuns.LOG.info("Creative Tabs:");
-                    for (CreativeTabs tab : CreativeTabs.creativeTabArray) {
-                        //                            RemoveGuns.LOG.info(tab.getTabLabel());
-                        if (tab.getTabLabel().equals("cnpcsw")) {
-                            RemoveGuns.LOG.info(tab.getClass().getSimpleName());
-                            RemoveGuns.LOG.info(tab.getClass().getFields());
-                        }
-                    }
-
+                    RemoveGuns.LOG.info(
+                        "Removed " + item.getEntityItem()
+                            .getDisplayName() + " from the world");
                 }
             }
         }

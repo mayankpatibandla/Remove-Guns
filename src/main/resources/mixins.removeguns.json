@@ -5,6 +5,7 @@
   "refmap": "mixins.removeguns.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
+  "plugin": "com.mayankpatibandla.removeguns.mixins.RemoveGunsMixinPlugin",
   "mixins": [
     "CreativeTabMixin"
   ],
