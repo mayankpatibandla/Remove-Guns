@@ -9,7 +9,7 @@ public class Config {
     public static String greeting = "Remove Guns is Enabled!";
     public static String[] items;
 
-    private static final String[] DEFAULT_ITEMS = new String[] { "Wooden Gun", "Wooden Bullet", "Stone Gun",
+    public static final String[] DEFAULT_ITEMS = new String[] { "Wooden Gun", "Wooden Bullet", "Stone Gun",
         "Stone Bullet", "Iron Gun", "Iron Bullet", "Golden Gun", "Golden Bullet", "Diamond Gun", "Diamond Bullet",
         "Bronze Gun", "Bronze Bullet", "Emerald Gun", "Emerald Bullet", "Machine Gun", "Black Bullet", "Kunai",
         "Reverse Kunai", "Shuriken", "Giant Shuriken", "Musket", "GunChainsaw" };
